@@ -1,4 +1,6 @@
-   ![login inicio de session](https://imgur.com/a/VZu239v)
+   <div align="center">
+  <img src="https://imgur.com/a/VZu239v" alt="Descripción de la imagen">
+</div>
 
 
 # 🛒 Mi Tienda - React + Vite + TailwindCSS
