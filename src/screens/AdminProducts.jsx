@@ -9,9 +9,10 @@ export default function AdminProducts() {
     info: "",
     price: "",
     iva: "",
-    image: null,
+    image: "",
     category_id: "",
   });
+
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState(null);
@@ -23,12 +24,12 @@ export default function AdminProducts() {
   }, []);
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (files) {
-      setForm({ ...form, image: files[0] });
-      setPreview(URL.createObjectURL(files[0]));
-    } else {
-      setForm({ ...form, [name]: value });
+    const { name, value } = e.target;
+
+    setForm({ ...form, [name]: value });
+
+    if (name === "image") {
+      setPreview(value);
     }
   };
 
@@ -40,22 +41,23 @@ export default function AdminProducts() {
       return;
     }
 
-    const data = new FormData();
-    Object.entries(form).forEach(([key, value]) => {
-      data.append(key, value);
-    });
-
     try {
       setLoading(true);
-      await axios.post("http://localhost:8005/products/upload", data);
+      await axios.post("http://localhost:8005/products", form, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
       alert("✅ Producto creado exitosamente");
+
       setForm({
         name: "",
         description: "",
         info: "",
         price: "",
         iva: "",
-        image: null,
+        image: "",
         category_id: "",
       });
       setPreview(null);
@@ -78,13 +80,16 @@ export default function AdminProducts() {
         <FormInput label="IVA" name="iva" type="number" step="0.01" value={form.iva} onChange={handleChange} />
 
         <div>
-          <label className="block mb-1 font-medium">Imagen *</label>
+          <label htmlFor="image" className="block mb-1 font-medium">URL de la Imagen *</label>
           <input
-            type="file"
+            id="image"
             name="image"
-            accept="image/png, image/jpeg"
+            type="text"
+            value={form.image}
             onChange={handleChange}
-            className="block w-full border border-gray-300 rounded px-3 py-2"
+            required
+            placeholder="https://ejemplo.com/imagen.jpg"
+            className="w-full border border-gray-300 rounded px-3 py-2"
           />
           {preview && (
             <img

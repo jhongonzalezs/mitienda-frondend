@@ -1,4 +1,3 @@
-// src/App.jsx
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Login from "./screens/Login";
 import Home from "./screens/Home";
@@ -8,7 +7,9 @@ import AdminProducts from "./screens/AdminProducts";
 import AdminCategories from "./screens/AdminCategories";
 import { useAuth } from "./context/AuthContext";
 import PrivateLayout from "./layouts/PrivateLayout";
-
+import AdminProductList from "./screens/AdminProductList";
+import AdminCategoryProducts from "./screens/AdminCategoryProducts";
+import AdminOrders from "./screens/AdminOrders";
 
 
 function ProtectedRoute({ children }) {
@@ -91,6 +92,27 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/admin/products/list"
+          element={
+            <ProtectedRoute>
+              <AdminProductList />
+            </ProtectedRoute>} />
+
+        <Route
+          path="/admin/categories/products"
+          element={
+            <ProtectedRoute>
+              <AdminCategoryProducts />
+            </ProtectedRoute>} />
+
+        <Route
+          path="/admin/orders"
+          element={
+            <ProtectedRoute>
+              <AdminOrders />
+            </ProtectedRoute>} />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

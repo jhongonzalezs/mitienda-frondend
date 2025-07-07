@@ -1,13 +1,36 @@
-// src/screens/Cart.jsx
 import { useCart } from "../context/CartContext";
+import axios from "axios";
 
 function Cart() {
-  const { cartItems, removeFromCart, updateQuantity } = useCart();
+  const { cartItems, removeFromCart, updateQuantity, clearCart } = useCart();
 
   const total = cartItems.reduce(
     (sum, item) => sum + (item.price + item.iva) * item.quantity,
     0
   );
+
+  const handlePurchase = async () => {
+    if (cartItems.length === 0) return alert("El carrito está vacío");
+
+    const orderId = Math.floor(Math.random() * 1000000);
+
+    const orderPayload = cartItems.map((item) => ({
+      order_id: orderId,
+      product_id: item.id,
+      quantity: item.quantity,
+      unit_price: item.price + item.iva,
+    }));
+
+    try {
+      const res = await axios.post("http://localhost:8004/orders", orderPayload);
+      alert("✅ Pedido realizado con éxito");
+      console.log("Respuesta:", res.data);
+      clearCart();
+    } catch (err) {
+      console.error("❌ Error al realizar el pedido", err);
+      alert("❌ Error al realizar el pedido");
+    }
+  };
 
   return (
     <div className="p-6">
@@ -56,9 +79,17 @@ function Cart() {
               </li>
             ))}
           </ul>
+
           <h2 className="mt-6 text-lg font-bold">
             Total: ${total.toFixed(2)}
           </h2>
+
+          <button
+            className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
+            onClick={handlePurchase}
+          >
+            Comprar
+          </button>
         </>
       )}
     </div>

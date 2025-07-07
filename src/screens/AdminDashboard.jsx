@@ -11,7 +11,10 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <Card title="Productos" onClick={() => navigate("/admin/products")} />
         <Card title="Categorías" onClick={() => navigate("/admin/categories")} />
-        <Card title="Pedidos" onClick={() => alert("En construcción")} />
+        <Card title="Pedidos" onClick={() => navigate("/admin/orders")} />
+        <Card title="Ver Productos" onClick={() => navigate("/admin/products/list")} />
+        <Card title="Productos por Categoría" onClick={() => navigate("/admin/categories/products")} />
+
       </div>
     </div>
   );

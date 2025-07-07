@@ -1,4 +1,3 @@
-// src/components/ProductModal.jsx
 import React from "react";
 
 function ProductModal({ product, categoryName, onClose }) {

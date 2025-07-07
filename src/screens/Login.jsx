@@ -18,7 +18,7 @@ export default function Login() {
     e.preventDefault();
     try {
       const res = await loginUser(form);
-      console.log("Respuesta del login:", res); // <- importante para debug
+      console.log("Respuesta del login:", res); 
       login(res);
 
       setTimeout(() => {
@@ -27,7 +27,7 @@ export default function Login() {
         } else {
           navigate("/");
         }
-      }, 100); // 100ms para dar tiempo a setUser en contexto
+      }, 100); 
 
     } catch (err) {
       console.error(err);

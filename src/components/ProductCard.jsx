@@ -1,4 +1,3 @@
-// src/components/ProductCard.jsx
 import React, { useState } from "react";
 import ProductModal from "./ProductModal";
 import axios from "axios";
@@ -21,7 +20,6 @@ function ProductCard({ product }) {
         if (category && typeof category.name === "string") {
           setCategoryName(category.name);
         } else {
-          // Si no viene .name o no es string
           console.warn("Respuesta inesperada:", category);
           setCategoryName("Desconocida");
         }
