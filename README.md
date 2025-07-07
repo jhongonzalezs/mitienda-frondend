@@ -42,3 +42,15 @@ Administrador:
 
 
 
+## 🚀 Clonar y ejecutar el proyecto
+
+```bash
+# 1. Clona el repositorio
+git clone https://github.com/jhongonzalezs/mitienda-frondend.git
+cd mitienda-frondend
+
+# 2. Instala dependencias
+npm install
+
+# 3. Corre la aplicación en modo desarrollo
+npm run dev
