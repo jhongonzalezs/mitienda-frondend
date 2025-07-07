@@ -1,4 +1,4 @@
-https://imgur.com/a/VZu239v
+   ![login inicio de session](https://imgur.com/a/VZu239v)
 
 
 # 🛒 Mi Tienda - React + Vite + TailwindCSS
