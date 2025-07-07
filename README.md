@@ -1,3 +1,6 @@
+https://imgur.com/a/VZu239v
+
+
 # 🛒 Mi Tienda - React + Vite + TailwindCSS
 
 Este es un proyecto de tienda virtual desarrollado con **React**, **Vite** y **TailwindCSS**. Cuenta con autenticación de usuarios, carrito de compras, y un panel de administración para usuarios con privilegios especiales.
