@@ -1,12 +1,44 @@
-# React + Vite
+# 🛒 Mi Tienda - React + Vite + TailwindCSS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es un proyecto de tienda virtual desarrollado con **React**, **Vite** y **TailwindCSS**. Cuenta con autenticación de usuarios, carrito de compras, y un panel de administración para usuarios con privilegios especiales.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [React Router DOM](https://reactrouter.com/)
+- [Axios](https://axios-http.com/)
+- Context API para manejo de autenticación y carrito
 
-## Expanding the ESLint configuration
+## 🔐 Funcionalidades principales
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Usuarios normales
+- Iniciar sesión
+- Visualizar productos
+- Agregar productos al carrito
+- Ver y gestionar su carrito
+- Cerrar sesión
+
+### Administrador (`admin`)
+- Iniciar sesión como **admin**
+- Acceder a `/admin` y visualizar el **Panel de Administración**
+- Navegar a:
+  - `/admin/products`: Gestión de productos (por implementar)
+  - `/admin/categories`: Gestión de categorías (por implementar)
+  - Ver tarjeta de "Pedidos" (futura funcionalidad)
+- Cerrar sesión
+
+## 🧪 Credenciales de prueba
+
+```bash
+Usuario normal:
+  username: user
+  password: 1234
+
+Administrador:
+  username: admin
+  password: clave123
+
+
+
